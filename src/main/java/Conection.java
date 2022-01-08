@@ -11,16 +11,14 @@ public class Conection {
      * conectarse a una dataBase MySql
      *
      * **/
-    public Connection get_connection(){
+    public Connection getConnection(){
         Connection connection = null;
 
         try{
             connection = DriverManager.getConnection("jdbc:mysql://"
                     +dotenv.get("DATABASE_HOST")+":"+dotenv.get("DATABASE_PORT")
                     +"/"+dotenv.get("DATABASE_NAME"),dotenv.get("DATABASE_USER"),dotenv.get("DATABASE_PASSWORD"));
-        if (connection != null){
-            System.out.println("Concetado a la DB ");
-        }
+
         } catch (SQLException e) {
             System.out.println("no se pudo conectar");
             e.printStackTrace();
